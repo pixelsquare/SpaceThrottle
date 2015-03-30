@@ -1,6 +1,6 @@
 # SpaceThrottle
 * Project Name: Space Throttle
 
-* Language/s: C#
+* Game Engine: Unity3D
 
 * Description: A school project for Game Design class
