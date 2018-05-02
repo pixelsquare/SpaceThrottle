@@ -17,8 +17,8 @@ public class Playsound : MonoBehaviour {
 	}
 
 	private void DestroySound() {
-		Destroy(gameObject.collider);
-		gameObject.renderer.material.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+		Destroy(gameObject.GetComponent<Collider>());
+		gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
 		StartCoroutine("Play", endSound);
 		StartCoroutine("DestroyObject", endSound.clip.length);

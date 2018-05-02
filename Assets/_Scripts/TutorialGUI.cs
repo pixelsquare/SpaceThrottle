@@ -15,7 +15,7 @@ public class TutorialGUI : ParallaxProperties {
 	private float destroyTimer = 0.0f;
 
 	private void Start() {
-		guiTexture.color = new Color(0.5f, 0.5f, 0.5f, 0.0f);
+		GetComponent<GUITexture>().color = new Color(0.5f, 0.5f, 0.5f, 0.0f);
 		//StartCoroutine("DestroyTime", ((fadeDuration * 2) + duration));
 	}
 
@@ -33,7 +33,7 @@ public class TutorialGUI : ParallaxProperties {
 		}
 
 		float lerp = Mathf.PingPong(time, fadeDuration) / fadeDuration;
-		guiTexture.color = Color.Lerp(startColor, endColor, lerp);
+		GetComponent<GUITexture>().color = Color.Lerp(startColor, endColor, lerp);
 
 		if (lerp >= 0.9f) {
 			StartCoroutine("FreezeTexture", duration);

@@ -17,7 +17,7 @@ public class WarningScript : MonoBehaviour {
 	private void Update() {
 		time += Time.deltaTime;
 		float lerp = Mathf.PingPong(time, duration) / duration;
-		guiTexture.color = Color.Lerp(startColor, endColor, lerp);
+		GetComponent<GUITexture>().color = Color.Lerp(startColor, endColor, lerp);
 
 	}
 

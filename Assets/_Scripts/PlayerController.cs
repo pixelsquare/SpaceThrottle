@@ -56,8 +56,8 @@ public class PlayerController : ParallaxProperties {
 				transform.Translate(Vector3.forward * vertical);
 			}
 
-			if (rigidbody.IsSleeping())
-				rigidbody.velocity = Vector3.zero;
+			if (GetComponent<Rigidbody>().IsSleeping())
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 			if (Input.GetButtonDown("Fire1")) {
 				Transform tmpBullet = (Transform)Instantiate(bullet, transform.position, Quaternion.identity);
@@ -96,17 +96,17 @@ public class PlayerController : ParallaxProperties {
 
 	void OnCollisionEnter(Collision col) {
 		if (col.contacts[0].normal.x != 0.0f && col.contacts[0].normal.z > 0.0f) {
-			rigidbody.constraints = RigidbodyConstraints.FreezePositionY |
+			GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY |
 									RigidbodyConstraints.FreezePositionZ |
 									RigidbodyConstraints.FreezeRotation;
 		}
 	}
 
 	void OnCollisionExit(Collision col) {
-		rigidbody.constraints = RigidbodyConstraints.FreezePositionY |
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY |
 								RigidbodyConstraints.FreezeRotation;
 
-		rigidbody.velocity = Vector3.zero;
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
 	}
 
 	public void SetControl(bool control) {

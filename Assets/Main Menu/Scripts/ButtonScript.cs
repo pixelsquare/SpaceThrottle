@@ -16,15 +16,15 @@ public class ButtonScript : MonoBehaviour {
 
 	private void Start() {
 		originalScale = transform.localScale;
-		originalColor = guiTexture.color;
+		originalColor = GetComponent<GUITexture>().color;
 
 		audio = this.gameObject.GetComponent<AudioSource>();
 	}
 
 	private void OnMouseEnter() {
 		transform.localScale += Vector3.one * scaleOffset;
-		guiTexture.texture = hoverTexture;
-		guiTexture.color = hoverColor;
+		GetComponent<GUITexture>().texture = hoverTexture;
+		GetComponent<GUITexture>().color = hoverColor;
 
 		if (audio && !audio.isPlaying) {
 			audio.Play();
@@ -33,8 +33,8 @@ public class ButtonScript : MonoBehaviour {
 
 	private void OnMouseExit() {
 		transform.localScale = originalScale;
-		guiTexture.texture = normalTexture;
-		guiTexture.color = originalColor;
+		GetComponent<GUITexture>().texture = normalTexture;
+		GetComponent<GUITexture>().color = originalColor;
 
 		if (audio) {
 			audio.Stop();
